@@ -34,7 +34,7 @@ public class StoreService {
         }
         int available = socks.get(sock);
         int result = available - sockWarehouse.getQuantity();
-        if (result <= 0) {
+        if (result < 0) {
             throw new IncorrectParameter();
         }
         socks.replace(sock, result);
@@ -64,8 +64,12 @@ public class StoreService {
                 return available;
 
             }
-            return 0;
         }
+        return 0;
+
+    }
+
+    public void delete(SockWarehouse sockWarehouse) {
 
     }
 }
