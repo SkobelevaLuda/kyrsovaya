@@ -47,9 +47,9 @@ public class StoreService {
     }
 
     public int count(String color,
-                      float size,
-                      int cottonMin,
-                      int cottonMax) {
+                     float size,
+                     int cottonMin,
+                     int cottonMax) {
         Size s = Size.parse(size);
         Color c = Color.parse(color);
         if (Objects.isNull(c) || Objects.isNull(s) || cottonMin >= cottonMax || cottonMin < 0 ||
@@ -57,10 +57,10 @@ public class StoreService {
             throw new IncorrectParameter();
         }
         for (Map.Entry<Sock, Integer> entry : socks.entrySet()) {
-            Sock sock=entry.getKey();
+            Sock sock = entry.getKey();
             int available = entry.getValue();
             if (sock.getColor() == c && sock.getSize() == s &&
-                    sock.getCottonPart() >= cottonMin && sock.getCottonPart()<= cottonMax){
+                    sock.getCottonPart() >= cottonMin && sock.getCottonPart() <= cottonMax) {
                 return available;
 
             }

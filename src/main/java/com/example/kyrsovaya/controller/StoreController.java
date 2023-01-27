@@ -29,8 +29,8 @@ public class StoreController {
     @GetMapping
     public ResponseEntity<Integer> count(@RequestParam String color,
                                          @RequestParam float size,
-                                         @RequestParam(required = false,defaultValue = "0") int cottonMin,
-                                         @RequestParam(required = false,defaultValue = "100") int cottonMax) {
+                                         @RequestParam(required = false, defaultValue = "0") int cottonMin,
+                                         @RequestParam(required = false, defaultValue = "100") int cottonMax) {
         int available = storeService.count(color, size, cottonMin, cottonMax);
         return ResponseEntity.ok(available);
     }
