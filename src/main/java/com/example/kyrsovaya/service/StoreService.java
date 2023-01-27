@@ -69,7 +69,4 @@ public class StoreService {
 
     }
 
-    public void delete(SockWarehouse sockWarehouse) {
-
-    }
 }
