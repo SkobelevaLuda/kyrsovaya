@@ -15,23 +15,29 @@ public class StoreController {
     }
 
     @PostMapping
-    public ResponseEntity<?>add(@RequestBody SockWarehouse sockWarehouse){
+    public ResponseEntity<?> add(@RequestBody SockWarehouse sockWarehouse) {
         storeService.add(sockWarehouse);
         return ResponseEntity.ok().build();
     }
 
     @PutMapping
-    public ResponseEntity<?>expenditure(@RequestBody SockWarehouse sockWarehouse){
-        storeService.expenditure (sockWarehouse);
+    public ResponseEntity<?> expenditure(@RequestBody SockWarehouse sockWarehouse) {
+        storeService.expenditure(sockWarehouse);
         return ResponseEntity.ok().build();
     }
 
     @GetMapping
-    public ResponseEntity<Integer>count(@RequestParam String color,
-                                        @RequestParam float size,
-                                        @RequestParam int cottonMin,
-                                        @RequestParam int cottonMax){
-        storeService.count (color,size, cottonMin,cottonMax);
+    public ResponseEntity<Integer> count(@RequestParam String color,
+                                         @RequestParam float size,
+                                         @RequestParam int cottonMin,
+                                         @RequestParam int cottonMax) {
+        int available = storeService.count(color, size, cottonMin, cottonMax);
+        return ResponseEntity.ok(available);
+    }
+
+    @DeleteMapping
+    public ResponseEntity<?> delete(@RequestBody SockWarehouse sockWarehouse) {
+        storeService.expenditure(sockWarehouse);
         return ResponseEntity.ok().build();
     }
 }

@@ -45,15 +45,26 @@ public class StoreService {
         return sock.getCottonPart() <= 0 || sock.getCottonPart() > 100 ||
                 sockWarehouse.getQuantity() <= 0;
     }
-    public void count(String color,
+
+    public int count(String color,
                       float size,
                       int cottonMin,
                       int cottonMax) {
-        Size s =Size.parse(size);
-        Color c =Color.parse(color);
-        if(Objects.isNull(c)|| Objects.isNull(s) ||cottonMin >= cottonMax || cottonMin<0 ||
-        cottonMax>100){
+        Size s = Size.parse(size);
+        Color c = Color.parse(color);
+        if (Objects.isNull(c) || Objects.isNull(s) || cottonMin >= cottonMax || cottonMin < 0 ||
+                cottonMax > 100) {
             throw new IncorrectParameter();
+        }
+        for (Map.Entry<Sock, Integer> entry : socks.entrySet()) {
+            Sock sock=entry.getKey();
+            int available = entry.getValue();
+            if (sock.getColor() == c && sock.getSize() == s &&
+                    sock.getCottonPart() >= cottonMin && sock.getCottonPart()<= cottonMax){
+                return available;
+
+            }
+            return 0;
         }
 
     }
