@@ -1,7 +1,5 @@
 package com.example.kyrsovaya.controller;
 
-import com.example.kyrsovaya.filter.Filter;
-import com.example.kyrsovaya.model.Sock;
 import com.example.kyrsovaya.model.SockWarehouse;
 import com.example.kyrsovaya.service.StoreService;
 import org.springframework.http.ResponseEntity;
@@ -29,8 +27,11 @@ public class StoreController {
     }
 
     @GetMapping
-    public ResponseEntity<Integer>count(Filter filter){
-        storeService.count (filter);
+    public ResponseEntity<Integer>count(@RequestParam String color,
+                                        @RequestParam float size,
+                                        @RequestParam int cottonMin,
+                                        @RequestParam int cottonMax){
+        storeService.count (color,size, cottonMin,cottonMax);
         return ResponseEntity.ok().build();
     }
 }

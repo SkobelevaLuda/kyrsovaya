@@ -1,13 +1,15 @@
 package com.example.kyrsovaya.service;
 
 import com.example.kyrsovaya.exeption.IncorrectParameter;
-import com.example.kyrsovaya.filter.Filter;
+import com.example.kyrsovaya.model.Color;
+import com.example.kyrsovaya.model.Size;
 import com.example.kyrsovaya.model.Sock;
 import com.example.kyrsovaya.model.SockWarehouse;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 @Service
 public class StoreService {
@@ -43,11 +45,16 @@ public class StoreService {
         return sock.getCottonPart() <= 0 || sock.getCottonPart() > 100 ||
                 sockWarehouse.getQuantity() <= 0;
     }
-
-    public void count(Filter filter){
-
+    public void count(String color,
+                      float size,
+                      int cottonMin,
+                      int cottonMax) {
+        Size s =Size.parse(size);
+        Color c =Color.parse(color);
+        if(Objects.isNull(c)|| Objects.isNull(s) ||cottonMin >= cottonMax || cottonMin<0 ||
+        cottonMax>100){
+            throw new IncorrectParameter();
+        }
 
     }
-
-
 }

@@ -1,5 +1,7 @@
 package com.example.kyrsovaya.model;
 
+import org.springframework.lang.Nullable;
+
 public enum Size {
     SIZE_36(36),
     SIZE_37(37),
@@ -13,5 +15,15 @@ public enum Size {
 
     public float getSize() {
         return size;
+    }
+
+    @Nullable
+    public static Size parse(float size) {
+        for (Size s : values()) {
+            if (Float.compare(s.size,size)==0) {
+                return s;
+            }
+        }
+        return null;
     }
 }
