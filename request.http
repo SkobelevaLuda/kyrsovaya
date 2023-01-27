@@ -2,11 +2,12 @@ POST http://localhost:8080/api/socks
 Content-Type: application/json
 
 {
-  "color": "RED",
-  "size" : 36.0,
-  "cottonPart" : 40,
-  "quantity" : 5
-
+  "sock": {
+    "color": "RED",
+    "size": "36.0",
+    "cottonPart": 40
+  },
+  "quantity": 5
 }
 
 ###
@@ -15,30 +16,32 @@ PUT http://localhost:8080/api/socks
 Content-Type: application/json
 
 {
-  "color": "RED",
-  "size" : 36.0,
-  "cottonPart" : 40,
-  "quantity" : 5
-
+  "sock": {
+    "color": "RED",
+    "size": "36.0",
+    "cottonPart": 40
+  },
+  "quantity": 5
 }
 
 ###
 
-GET http://localhost:8080/api/socks?color=RED&36&cottonMin=90
+GET http://localhost:8080/api/socks?color=RED&size=36&cottonMin=90
 
 ###
 
-GET http://localhost:8080/api/socks?color=RED&36&cottonMin=10
+GET http://localhost:8080/api/socks?color=RED&size=36&cottonMin=10
 
 ###
 
-PUT http://localhost:8080/api/socks
+DELETE http://localhost:8080/api/socks
 Content-Type: application/json
 
 {
-  "color": "RED",
-  "size" : 36.0,
-  "cottonPart" : 40,
-  "quantity" : 5
-
+  "sock": {
+    "color": "RED",
+    "size": "36.0",
+    "cottonPart": 40
+  },
+  "quantity": 5
 }

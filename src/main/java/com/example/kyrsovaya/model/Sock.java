@@ -8,9 +8,9 @@ import lombok.NoArgsConstructor;
 @Data
 
 public class  Sock{
-    private final Size size;
-    private final Color color;
-    private final int cottonPart;
+    private Size size;
+    private Color color;
+    private int cottonPart;
 
 
     public Sock(Size size, Color color, int cottonPart) {

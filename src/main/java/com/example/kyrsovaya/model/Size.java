@@ -1,5 +1,6 @@
 package com.example.kyrsovaya.model;
 
+import com.fasterxml.jackson.annotation.JsonValue;
 import org.springframework.lang.Nullable;
 
 public enum Size {
@@ -13,6 +14,7 @@ public enum Size {
         this.size = size;
     }
 
+    @JsonValue
     public float getSize() {
         return size;
     }
@@ -20,7 +22,7 @@ public enum Size {
     @Nullable
     public static Size parse(float size) {
         for (Size s : values()) {
-            if (Float.compare(s.size,size)==0) {
+            if (Float.compare(s.size, size) == 0) {
                 return s;
             }
         }
