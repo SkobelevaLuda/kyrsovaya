@@ -1,6 +1,7 @@
 package com.example.kyrsovaya.controller;
 
-import com.example.kyrsovaya.model.SockItem;
+import com.example.kyrsovaya.model.Sock;
+import com.example.kyrsovaya.model.SockWarehouse;
 import com.example.kyrsovaya.service.StoreService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,7 +19,7 @@ public class StoreController {
     }
 
     @PostMapping
-    public ResponseEntity<?>add(@RequestBody SockItem sockItem){
-        storeService.add(sockItem);
+    public ResponseEntity<?>add(@RequestBody SockWarehouse sockWarehouse){
+        storeService.add(sockWarehouse);
     }
 }
